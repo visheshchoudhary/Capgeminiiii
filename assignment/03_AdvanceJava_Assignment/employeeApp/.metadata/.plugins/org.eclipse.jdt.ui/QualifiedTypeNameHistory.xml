@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.Min"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.capg.employeeApp.repository.EmployeeRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="com.capg.employeeApp.service.EmployeeService"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="com.capg.employeeApp.entity.Employee"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.MethodArgumentNotValidException"/>
+    <fullyQualifiedTypeName name="com.capg.employeeApp.exception.EmployeeNotFoundException"/>
+    <fullyQualifiedTypeName name="com.capg.employeeApp.dto.CompanyResponseDTO"/>
+    <fullyQualifiedTypeName name="com.capg.employeeApp.dto.EmployeeDto"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.cache.annotation.Cacheable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.cache.annotation.EnableCaching"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.AssertFalse.List"/>
+    <fullyQualifiedTypeName name="com.example.mobile.repository.MobileRepository"/>
+    <fullyQualifiedTypeName name="com.example.mobile.service.MobileService"/>
+    <fullyQualifiedTypeName name="com.example.mobile.entity.Mobile"/>
+    <fullyQualifiedTypeName name="com.example.mobile.dto.MobileDTO"/>
+</qualifiedTypeNameHistroy>

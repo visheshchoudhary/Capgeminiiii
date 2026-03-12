@@ -1,0 +1,5 @@
+package com.capg.employeeApp.dto;
+
+public class EmployeeDto {
+
+}

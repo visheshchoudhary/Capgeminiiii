@@ -1,0 +1,5 @@
+package com.lpu.Assignment.Repository;
+
+public class EmployeeRepository {
+
+}

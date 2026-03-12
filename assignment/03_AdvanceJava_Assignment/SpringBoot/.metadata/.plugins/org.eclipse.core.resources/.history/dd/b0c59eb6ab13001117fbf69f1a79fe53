@@ -1,0 +1,48 @@
+package com.lpu.SpringBootDemo.Controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.websocket.server.PathParam;
+
+@RestController
+public class MyController {
+		
+	@GetMapping("/hi")
+	public String sayHi()
+	{
+		return "Byeee";
+	}
+	
+	
+	@GetMapping("/takeData")
+	public String takeData(@RequestParam int id,@RequestParam String name)
+	{
+		return "ID = " + id + " Name = " + name ;
+	}	
+	
+	
+	@GetMapping("/college")
+	public String getCollege(@RequestParam int id, @RequestParam String name, @RequestParam List<String> location)
+	{
+		return "ID = " + id + " Name = " + " Location = " + location;
+	}
+	
+	
+	@GetMapping("/takeData2/{id}/{name}")
+	public String takeData2(@PathVariable int id, @PathVariable String name)
+	{
+		return "ID = " + id + " Name = " + name;
+	}
+	
+	
+	@GetMapping("/student/{sId}/college/{cId}")
+	public String takeData3(@PathVariable int sId, @PathVariable int cId)
+	{
+		return "StudentID = " + sId + " CollegeID = " + cId;
+	}
+}

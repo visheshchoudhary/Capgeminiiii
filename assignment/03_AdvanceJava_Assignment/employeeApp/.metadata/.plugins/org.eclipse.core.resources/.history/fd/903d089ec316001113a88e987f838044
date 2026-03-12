@@ -1,0 +1,5 @@
+package com.capg.employeeApp.entity;
+
+public class EmployeeServicesCache {
+
+}

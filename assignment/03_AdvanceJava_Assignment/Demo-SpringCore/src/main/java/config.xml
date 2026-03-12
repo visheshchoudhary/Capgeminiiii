@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<bean id="myStudent" class="com.lpu.Day1.Student">
+	</bean>
+
+
+	<bean id="emp" class="com.lpu.Day1.Employee">
+		<!-- <property name="id" value="101" /> <property name="name" value="Ansh" 
+			/> <property name = "laptop" ref = "myLap" /> -->
+
+		<constructor-arg value="108" />
+		<constructor-arg value="Raju" />
+		<constructor-arg ref="myLap" />
+	</bean>
+
+
+	<bean id="myLap" class="com.lpu.Day1.Laptop">
+	</bean>
+
+
+	<bean id="college" class="com.lpu.Day1.College">
+	
+		<property name="students">
+
+			<list>
+				<value>Ansh</value>
+				<value>Ram</value>
+				<value>Shyam</value>
+				<value>Mohan</value>
+			</list>
+
+		</property>
+
+		<property name="studentMap">
+			<map>
+				<entry key="101" value="Anshul" />
+				<entry key="102" value="Rahul" />
+				<entry key="103" value="Priya" />
+				<entry key="104" value="Sneha" />
+			</map>
+		</property>
+		
+	</bean>
+
+</beans>

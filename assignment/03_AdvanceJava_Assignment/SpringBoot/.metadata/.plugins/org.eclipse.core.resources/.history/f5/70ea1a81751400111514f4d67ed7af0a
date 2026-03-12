@@ -1,0 +1,5 @@
+package com.lpu.SpringBootDemo.Controller;
+
+public class CollegeController {
+
+}

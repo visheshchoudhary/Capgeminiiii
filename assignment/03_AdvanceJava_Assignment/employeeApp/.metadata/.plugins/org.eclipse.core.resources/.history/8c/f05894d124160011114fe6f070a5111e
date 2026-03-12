@@ -1,0 +1,38 @@
+package com.capg.employeeApp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import com.capg.employeeApp.entity.Company;
+import com.capg.employeeApp.entity.Employee;
+import com.capg.employeeApp.exception.CompanyNotFoundException;
+import com.capg.employeeApp.repository.CompanyRepository;
+
+import java.util.*;
+
+@Service
+public class CompanyService {
+	@Autowired
+	private CompanyRepository repository;
+	
+	public Company saveCompany(Company company) {
+		return repository.save(company);
+	}
+	public Company saveCompanyAndMapWithEmp(Company company) {
+		company.getEmployees().forEach((emp)->emp.setCompany(company));
+		return repository.save(company);
+	}
+	
+	public Company saveEmployeeToExistingCompany(int companyId,List<Employee> newEmp) {
+		Company company = repository.findById(companyId).orElse(null);
+		company.getEmployees().addAll(newEmp);
+		return saveCompanyAndMapWithEmp(company);
+	}
+	
+	public Company findCompanyById(int id) {
+		return repository.findById(id).orElseThrow(
+				()-> new CompanyNotFoundException("company with id "+id+"not exists"));
+	}
+	
+}

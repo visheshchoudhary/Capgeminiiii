@@ -1,0 +1,38 @@
+package com.lpu.Boot2.Service;
+import com.lpu.Boot2.Repository.EmployeeRepository;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lpu.Boot2.Entity.Company;
+import com.lpu.Boot2.Repository.CompanyRepository;
+
+@Service
+public class CompanyService {
+	
+	@Autowired
+	private CompanyRepository repository;
+	
+	public Company saveCompany(Company company)
+	{
+		repository.save(company);
+		return company;
+	}
+	
+	public Company findById(int id)
+	{
+		return repository.findById(id).orElse(null);
+	}
+	
+	public List<Company> findAll()
+	{
+		return repository.findAll();
+	}
+	
+	public void deleteById(int id)
+	{
+		repository.deleteById(id);
+	}
+}

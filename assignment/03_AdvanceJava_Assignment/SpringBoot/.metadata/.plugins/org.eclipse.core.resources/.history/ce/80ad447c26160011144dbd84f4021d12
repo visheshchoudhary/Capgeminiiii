@@ -1,0 +1,42 @@
+package com.lpu.Boot2.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lpu.Boot2.Entity.Employee;
+import com.lpu.Boot2.Service.EmployeeService;
+
+import jakarta.validation.Valid;
+
+@RestController
+public class EmployeeController {
+	
+	@Autowired
+	private EmployeeService service;
+	
+	@PostMapping("/employee")
+	private ResponseEntity<Employee> saveEmployee(@Valid @RequestBody Employee employee)
+	{
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.saveEmployee(employee));
+	}
+	
+	@GetMapping("/employee/{id}")
+	private ResponseEntity<Employee> findById(@PathVariable int id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
+	}
+	
+	@DeleteMapping("employee/delete/{id}")
+	private String deleteById(@PathVariable	int id)
+	{
+		service.deleteById(id);
+		return "Employee Deleted";
+	}
+}

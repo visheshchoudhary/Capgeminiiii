@@ -1,0 +1,52 @@
+package com.capg.employeeApp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.capg.employeeApp.entity.Company;
+import com.capg.employeeApp.entity.Employee;
+import com.capg.employeeApp.service.CompanyService;
+
+import jakarta.validation.Valid;
+
+import java.util.*;
+@RestController
+public class CompanyController {
+	@Autowired
+	private CompanyService companyService;
+	@PostMapping("/company")
+//	public Company saveCompany(@RequestBody Company company) {
+//		return companyService.saveCompany(company);
+//	}
+	public ResponseEntity<Company> saveCompany(@Valid @RequestBody Company company) {
+		Company body=companyService.saveCompany(company);
+		return ResponseEntity.status(HttpStatus.CREATED).body(body);
+	}
+	
+	
+	@PostMapping("/company2")
+	public Company saveCompanyWithMapping(@RequestBody Company company) {
+		return companyService.saveCompanyAndMapWithEmp(company);
+	}
+	@PostMapping("/company/{cId}")
+	public Company saveCompanyWithMapping(@PathVariable int cId,@RequestBody List<Employee> employees) {
+		return companyService.saveEmployeeToExistingCompany(cId,employees);
+	}
+	
+	@GetMapping("/divide/{n1}/{n2}")
+	public String divide(@PathVariable int n1, @PathVariable int n2) {
+		return "result="+n1/n2;
+	}
+	
+	@GetMapping("/company/{id}")
+	public Company findCompById(@PathVariable int id) {
+		return companyService.findCompanyById(id);
+	}
+}

@@ -1,0 +1,96 @@
+package com.capg.employeeApp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.capg.employeeApp.dto.CompanyDTO;
+import com.capg.employeeApp.dto.CompanyResponseDTO;
+import com.capg.employeeApp.dto.EmployeeDto;
+//import com.capg.employeeApp.dto.EmployeeDTO;
+import com.capg.employeeApp.dto.EmployeeResponseDTO;
+import com.capg.employeeApp.entity.Company;
+import com.capg.employeeApp.entity.Employee;
+import com.capg.employeeApp.exception.CompanyNotFoundException;
+import com.capg.employeeApp.repository.CompanyRepository;
+
+import java.util.*;
+
+@Service
+public class CompanyService {
+
+    @Autowired
+    private CompanyRepository companyRepo;
+
+    // Old method (Entity based)
+    public Company saveCompany(Company company) {
+        return companyRepo.save(company);
+    }
+
+    public Company findCompanyById(int id) {
+        return companyRepo.findById(id)
+                .orElseThrow(() ->
+                        new CompanyNotFoundException("Company with id " + id + " not found"));
+    }
+
+    public Company addEmployeesToCompany(int companyId, List<Employee> employees) {
+        Company company = findCompanyById(companyId);
+
+        employees.forEach(emp -> emp.setCompany(company));
+        company.getEmployees().addAll(employees);
+
+        return companyRepo.save(company);
+    }
+
+    // DTO Based Save Method
+    public CompanyResponseDTO saveCompany(CompanyDTO dto) {
+
+        Company company = new Company();
+        company.setName(dto.getName());
+        company.setLocation(dto.getLocation());
+
+        List<Employee> empList = new ArrayList<>();
+
+        if (dto.getEmployees() != null) {
+            for (EmployeeDto e : dto.getEmployees()) {
+                Employee emp = new Employee();
+                emp.setName(e.getName());
+                emp.setEmail(e.getEmail());
+                emp.setAge(e.getAge());
+                emp.setPhone(e.getPhone());
+                emp.setCompany(company);
+                empList.add(emp);
+            }
+        }
+
+        company.setEmployees(empList);
+
+        Company saved = companyRepo.save(company);
+
+        return mapToResponseDTO(saved);
+    }
+
+    // Entity → ResponseDTO Mapping
+    private CompanyResponseDTO mapToResponseDTO(Company company) {
+
+        CompanyResponseDTO response = new CompanyResponseDTO();
+        response.setId(company.getId());
+        response.setName(company.getName());
+        response.setLocation(company.getLocation());
+
+        List<EmployeeResponseDTO> empDTOList = new ArrayList<>();
+
+        for (Employee emp : company.getEmployees()) {
+            EmployeeResponseDTO edto = new EmployeeResponseDTO();
+            edto.setId(emp.getId());
+            edto.setName(emp.getName());
+            edto.setEmail(emp.getEmail());
+            edto.setAge(emp.getAge());
+            edto.setPhone(emp.getPhone());
+            empDTOList.add(edto);
+        }
+
+        response.setEmployees(empDTOList);
+
+        return response;
+    }
+}

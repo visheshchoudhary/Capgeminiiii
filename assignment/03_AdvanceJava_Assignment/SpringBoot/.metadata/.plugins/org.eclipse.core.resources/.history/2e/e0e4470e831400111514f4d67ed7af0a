@@ -1,0 +1,36 @@
+package com.lpu.SpringBootDemo.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lpu.SpringBootDemo.Entity.College;
+import com.lpu.SpringBootDemo.Repository.CollegeRepository;
+
+@Service
+public class CollegeService {
+	
+	@Autowired
+	private CollegeRepository colRepository;
+	
+	public College saveCollege(College college)
+	{
+		return colRepository.save(college);
+	}
+	
+	public College findById(int id)
+	{
+		return colRepository.findById(id).orElse(null);
+	}
+	
+	public void deleteById(int id)
+	{
+		colRepository.deleteById(id);
+	}
+	
+	public List<College> findAllCollege()
+	{
+		return colRepository.findAll();
+	}
+}

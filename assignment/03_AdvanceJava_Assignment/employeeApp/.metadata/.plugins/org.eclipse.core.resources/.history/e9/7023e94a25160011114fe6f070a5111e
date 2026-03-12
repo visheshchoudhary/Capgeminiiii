@@ -1,0 +1,23 @@
+package com.capg.employeeApp.exception;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+	@ExceptionHandler(ArithmeticException.class)
+	public Map<String,String> handleArithmeticEx(ArithmeticException ex){
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("Error", ex.getMessage());
+		return map;
+	}
+	@ExceptionHandler(CompanyNotFoundException.class)
+	public Map<String,String> handleCompanyNotFoundEx(CompanyNotFoundException ex){
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("Error", ex.getMessage());
+		return map;
+	}
+}

@@ -1,0 +1,13 @@
+package com.capg.employeeApp.dto;
+
+import java.util.List;
+
+public class CompanyResponseDTO {
+
+    private int id;
+    private String name;
+    private String location;
+    private List<EmployeeResponseDTO> employees;
+
+    // getters and setters
+}

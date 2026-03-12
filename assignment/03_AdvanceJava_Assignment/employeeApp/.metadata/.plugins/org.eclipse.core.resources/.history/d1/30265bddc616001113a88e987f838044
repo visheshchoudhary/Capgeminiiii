@@ -1,0 +1,33 @@
+package com.capg.employeeApp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.capg.employeeApp.dto.EmployeeDto;
+import com.capg.employeeApp.entity.Employee;
+import com.capg.employeeApp.exception.EmployeeNotFoundException;
+import com.capg.employeeApp.repository.EmployeeRepository;
+
+@Service
+public class EmployeeService {
+
+	@Autowired
+	private EmployeeRepository employeeRepo;
+
+	public Employee findEmployeeById(int id) {
+		return employeeRepo.findById(id)
+			.orElseThrow(() ->
+				new EmployeeNotFoundException("Employee with id " + id + " not found"));
+	}
+	
+	
+	public EmployeeDto entityToDto(Employee e) {
+		EmployeeDto dto=new EmployeeDto();
+		dto.setAge(e.getAge());
+		dto.setEmaile(e.getEmail());
+		dto.setName(e.getName());
+		dto.setPhone(e.getPhone());
+		
+		
+	}
+}

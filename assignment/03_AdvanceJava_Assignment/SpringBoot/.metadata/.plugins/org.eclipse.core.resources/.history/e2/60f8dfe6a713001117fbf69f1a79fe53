@@ -1,0 +1,22 @@
+package com.lpu.SpringBootDemo.Controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MyController {
+		
+	@GetMapping("/hi")
+	public String sayHi()
+	{
+		return "Byeee";
+	}
+	
+	
+	@GetMapping("/takeData")
+	public String takeData(@RequestParam int id,@RequestParam String name)
+	{
+		return "ID = " + id + " Name = " + name ;
+	}
+}

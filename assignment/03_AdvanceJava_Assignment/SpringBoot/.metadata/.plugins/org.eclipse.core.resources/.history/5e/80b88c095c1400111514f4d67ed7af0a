@@ -1,0 +1,87 @@
+package com.lpu.SpringBootDemo.Controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lpu.SpringBootDemo.Entity.Student;
+import com.lpu.SpringBootDemo.SpringBootDemoApplication;
+import jakarta.websocket.server.PathParam;
+
+@RestController
+@RequestMapping("/lpu")
+public class MyController {
+		
+	@GetMapping("/hi")
+	public String sayHi()
+	{
+		return "Byeee";
+	}
+	
+	
+	@GetMapping("/takeData")
+	public String takeData(@RequestParam int id,@RequestParam String name)
+	{
+		return "ID = " + id + " Name = " + name ;
+	}	
+	
+	
+	@GetMapping("/college")
+	public String getCollege(@RequestParam int id, @RequestParam String name, @RequestParam List<String> location)
+	{
+		return "ID = " + id + " Name = " + " Location = " + location;
+	}
+	
+	
+	@GetMapping("/takeData2/{id}/{name}")
+	public String takeData2(@PathVariable int id, @PathVariable String name)
+	{
+		return "ID = " + id + " Name = " + name;
+	}
+	
+	
+	@GetMapping("/student/{sId}/college/{cId}")
+	public String takeData3(@PathVariable int sId, @PathVariable int cId)
+	{
+		return "StudentID = " + sId + " CollegeID = " + cId;
+	}
+	
+	
+	@GetMapping("/student/{id}/college")
+	public String takeData4(@PathVariable int id, @RequestParam String college)
+	{
+		return "ID = " + id + " CollegeName = " + college;
+	}
+	
+	
+	@GetMapping("/takeData5")
+	public String takeData5(@RequestHeader int id, @RequestHeader String name)
+	{
+		return "Id = " + id + " Name = " + name;
+	}
+	
+	
+	@GetMapping("/student")
+	public String getStudent(@RequestBody Student student)
+	{
+		System.out.println(student.getId());
+		System.out.println(student.getName());
+		System.out.println(student.getPhone());
+		
+		return student.getName() + " is recieved";
+	}
+	
+	
+	
+	@GetMapping("/student2")
+	public Student getStudent2(@RequestBody Student s)
+	{
+		return s;
+	}
+}

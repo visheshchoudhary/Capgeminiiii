@@ -1,0 +1,46 @@
+package com.lpu.SpringBootDemo.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lpu.SpringBootDemo.Entity.Student;
+import com.lpu.SpringBootDemo.Service.StudentService;
+
+@RestController
+public class StudentController {
+	
+	@Autowired
+	private StudentService service;
+	
+	@PostMapping("/student")
+	public Student save(@RequestBody Student student)
+	{
+		return service.saveStudent(student);
+	}
+	
+	@GetMapping("/student/{id}")
+	public Student fetchStudentById(@PathVariable int id)
+	{
+		return service.findStudentById(id);
+	}
+	
+	@DeleteMapping("/student")
+	public String deleteStudent(@RequestBody Student student)
+	{
+		service.deleteStudent(student);
+		return "Student Deleted";
+	}
+	
+	@GetMapping("/student")
+	public List<Student> findAllStudents()
+	{
+		return service.findAllStudent();
+	}
+}

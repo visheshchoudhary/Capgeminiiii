@@ -1,0 +1,16 @@
+package com.capg.employeeApp.entity;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+
+public class StudentServiceCache {
+	@Autowired
+	@Cacheable(value="students",key="#id")
+	public Student getStudentById(int id) {
+		System.err.println("fetching ...");
+		return studentRepo.findById(id).orelsethrow(()->  new ResousrceNotFou)
+		
+	}
+	
+
+}

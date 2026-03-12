@@ -1,0 +1,22 @@
+package com.lpu.SpringBootDemo.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lpu.SpringBootDemo.Entity.Student;
+import com.lpu.SpringBootDemo.Service.StudentService;
+
+@RestController
+public class StudentController {
+	
+	@Autowired
+	private StudentService service;
+	
+	@PostMapping("/student")
+	public Student save(@RequestBody Student student)
+	{
+		return service.saveStudent(student);
+	}
+}

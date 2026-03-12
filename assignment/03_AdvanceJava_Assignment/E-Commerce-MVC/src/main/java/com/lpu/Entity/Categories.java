@@ -1,0 +1,54 @@
+package com.lpu.Entity;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+@Entity
+public class Categories {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int Category_ID;
+	private String Category_name;
+	private String Category_type;
+	
+	@OneToMany(mappedBy = "category")
+	private List<Products> products;
+
+	public int getCategory_ID() {
+		return Category_ID;
+	}
+
+	public void setCategory_ID(int category_ID) {
+		Category_ID = category_ID;
+	}
+
+	public String getCategory_name() {
+		return Category_name;
+	}
+
+	public void setCategory_name(String category_name) {
+		Category_name = category_name;
+	}
+
+	public String getCategory_type() {
+		return Category_type;
+	}
+
+	public void setCategory_type(String category_type) {
+		Category_type = category_type;
+	}
+
+	public List<Products> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Products> products) {
+		this.products = products;
+	}
+}

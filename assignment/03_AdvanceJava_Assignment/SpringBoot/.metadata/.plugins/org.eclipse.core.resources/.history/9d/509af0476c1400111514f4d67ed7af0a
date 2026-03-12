@@ -1,0 +1,44 @@
+package com.lpu.SpringBootDemo.Service;
+
+import java.util.List;
+import java.util.Optional;
+import com.lpu.SpringBootDemo.SpringBootDemoApplication;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lpu.SpringBootDemo.Entity.Student;
+import com.lpu.SpringBootDemo.Repository.StudentRepository;
+
+@Service
+public class StudentService {
+
+    private final SpringBootDemo.SpringBootDemoApplication springBootDemoApplication;
+	
+	@Autowired
+	private StudentRepository repository;
+
+		
+	public Student saveStudent(Student student)
+	{
+		return repository.save(student);
+	}
+	
+	public Student findStudentById(int id)
+	{
+//		Optional<Student> optional = repository.findById(id);
+//		if(optional.isPresent())
+//			return optional.get();
+//		return null;
+		return repository.findById(id).orElse(null);
+	}
+	
+	public void deleteStudent(Student student)
+	{
+		repository.delete(student);
+	}
+	
+	public List<Student> findAllStudent()
+	{
+		return repository.findAll();
+	}
+}

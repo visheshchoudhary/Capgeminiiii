@@ -1,0 +1,30 @@
+package com.lpu.Boot2.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.stereotype.Service;
+
+import com.lpu.Boot2.Entity.Employee;
+import com.lpu.Boot2.Exception.EmployeeNotFoundException;
+import com.lpu.Boot2.Repository.EmployeeRepository;
+
+import jakarta.persistence.Cacheable;
+
+@Service
+public class EmployeeServiceCache {
+
+	@Autowired
+	private EmployeeRepository repository;
+	
+	@Cacheable(value = "employee", key = "#id")
+	public Employee getEmployee(int id)
+	{
+		return repository.findById(id).orElseThrow(() -> new EmployeeNotFoundException("Employee not found"));
+	}
+	
+	@CachePut(value = "employee", key = "#result.id")
+	public Employee addEmployee(Employee employee)
+	{
+		return repository.save(employee);
+	}
+}

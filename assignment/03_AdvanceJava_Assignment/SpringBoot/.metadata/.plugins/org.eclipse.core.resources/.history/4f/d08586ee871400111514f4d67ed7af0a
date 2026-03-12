@@ -1,0 +1,5 @@
+package com.lpu.Assignment.Entity;
+
+public class Employee {
+
+}

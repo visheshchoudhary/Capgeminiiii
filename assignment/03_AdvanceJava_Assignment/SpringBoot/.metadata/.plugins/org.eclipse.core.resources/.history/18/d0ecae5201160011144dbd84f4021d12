@@ -1,0 +1,5 @@
+package com.lpu.Boot2.Exception;
+
+public class CompanyNotFoundException {
+
+}

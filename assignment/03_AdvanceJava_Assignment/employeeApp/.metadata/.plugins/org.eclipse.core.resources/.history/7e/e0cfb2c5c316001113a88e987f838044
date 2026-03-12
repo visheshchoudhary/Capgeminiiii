@@ -1,0 +1,12 @@
+package com.capg.employeeApp.dto;
+
+public class EmployeeResponseDTO {
+
+    private int id;
+    private String name;
+    private String email;
+    private int age;
+    private long phone;
+
+    // getters and setters
+}
