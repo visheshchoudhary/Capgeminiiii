@@ -1,0 +1,385 @@
+In Java, public class first declares a class named first where public means the class can be accessed from anywhere, which is necessary so that the JVM can find and load the class while running the program. The keyword class is used to create a blueprint or template that contains data and methods, and first is simply the name of that class, which must match the file name (first.java). Inside the class, public static void main(String[] args) is the main method where program execution starts. Here, public allows the JVM to access the method, static means the method can be called without creating an object of the class, void indicates that the method does not return any value, main is the fixed name recognized by the JVM as the entry point of the program, String[] args is a parameter that stores command-line arguments passed to the program, where String represents text data, [] shows it is an array, and args is the variable name used to access those values.
+
+
+public class first {
+ 
+    public static void main(String[] args) {
+
+////////////////////////////////
+
+What are Tokens in Java?
+
+teacher ==  the smallest part of java program
+
+
+Tokens are the smallest meaningful units in a Java program.
+The Java compiler breaks a program into tokens to understand and compile the code.
+
+Types of Tokens in Java
+1️⃣ Keywords  50
+also known as complier aware words
+should be in lower case
+
+Reserved words with predefined meaning
+
+Cannot be used as variable names
+
+Examples:
+class, public, static, void, int, if, else, return
+
+2️⃣ Identifiers
+
+name given by programmer = identifiers
+Names given to classes, variables, methods
+
+Must follow naming rules
+we canot use keyword as identifiers
+we can not space
+we  canot starts with number
+special character are not allowed except _ and $
+
+
+Examples:
+first, main, args, sum
+
+3️⃣ Literals
+the value or data given by programmer.
+
+Fixed values assigned to variables
+
+types of literals
+number:--
+Integer → 10
+
+Floating → 3.14
+
+2. Character = it is used to present singal data → 'A' , 'a'
+
+3. String= it use to present group of characters it is inclosed inside double quotes the length could be anything → "Hello"
+
+4. Boolean = it gives us only two values → true, false
+
+4️⃣ Operators
+
+Symbols used to perform operations
+
+Examples:
++ - * / %
+= == != > <
+&& || !
+
+5️⃣ Separators (Punctuators)
+
+Used to separate program elements or java members
+
+Examples:
+() equations, conditions , method declarations
+{} block
+ ; end of statement
+, varaibles
+. refernce   india.punjab.phagwara
+
+////////////////////////////////////////////////////
+
+
+Datatype:-- it is used to store data
+
+1 primitive datatype:--
+
+inbuilt datatypes and are predefined in Java
+fixed size.
+Primitive data types store simple values and are predefined in Java.
+
+Data Type	Size	Description	         Example
+byte	      1 byte	Stores small integers	byte b = 10;
+short	      2 bytes	Stores short integers	short s = 100;
+int	      4 bytes	Stores whole numbers	int a = 20;
+long	      8 bytes	Stores large integers	long l = 1000L;
+float	      4 bytes	Stores decimal values	float f = 2.5f;
+double	      8 bytes	Stores large decimals	double d = 10.25;
+char	      2 bytes	Stores a single character char c = 'A';
+boolean	      1 bit	Stores true/false	boolean x = true;
+
+2  non primitive datatype:--
+
+Non-primitive data types store addresses (references) of objects and does not have fixed size it user define .
+
+Type	Description	          Example
+String	Stores text	          String name = "Java";
+Array	Stores multiple values	  int[] arr = {1,2,3};
+Class	Blueprint of object	  class Student {}
+Interface	Contract	  interface A {}
+
+
+////////////////////////////////////////////
+
+Data Types & Variables in Java
+
+
+A.    based pn datatype :--
+1. primitive variables :--
+Store single, simple values
+Fixed size
+Faster execution
+
+Types:
+int → whole numbers
+float, double → decimal numbers
+char → single character
+Boolean → true / false
+byte, short, long
+
+2. non PV:--
+Store address/reference of data
+Size is not fixed
+Can store multiple values
+
+B.   based on scope:--
+1. local variable  :-- a variable which is declare inside local area.
+
+                  2. global variable
+                          A. Non static == a variable which declare inside class area or global without static keyword
+                          B. static variable == a variable which is declare in class are prefix with static keyword
+
+
+NOTE:--
+we can not use local variables without initialization
+local variable are not assigned with default value
+we can not create two local variable with same names.
+local variable can be use only inside same local area.
+we can use global variable inside global area as well as local area
+
+
+WAP in java to calculate area of square whose side is 4.2
+Wap TO calculate area of circle whose radius is 5 // rectangle l=3.5 b =4
+WAP swap number using tem and without tem ;
+
+
+
+//////////////////////////////////////////////////////////
+
+
+
+## Operators in Java — **Short Notes**
+
+*(Without code • Using symbols • Divided into Unary, Binary, Ternary)*
+
+---
+
+
+## 1️⃣ Unary Operators (One operand)
+
+* `+`  → Unary plus (positive value)
+* `-`  → Unary minus (negative value)
+* `++` → Increment by 1 pre and post both
+* `--` → Decrement by 1 pre and post both
+* `!`  → Logical NOT (true ↔ false)
+* `~`  → Bitwise complement
+
+👉 **Use: Operate on **single variable/value**
+
+## 2️⃣ Binary Operators (Two operands)
+
+### 🔹 Arithmetic Operators
+
+* `+`  Addition
+* `-`  Subtraction
+* `\\\\\\\*`  Multiplication
+* `/`  Division
+* `%`  Modulus
+
+### 🔹 Relational Operators
+
+* `==` Equal to
+* `!=` Not equal to
+* `>`  Greater than
+* `<`  Less than
+* `>=` Greater than or equal to
+* `<=` Less than or equal to
+
+### 🔹 Logical Operators
+
+* `\\\\\\\&\\\\\\\&` Logical AND
+* `||` Logical OR
+
+### 🔹 Assignment Operators
+
+* `=`   Assign
+* `+=`  Add & assign
+* `-=`  Subtract & assign
+* `\\\\\\\*=`  Multiply & assign
+* `/=`  Divide & assign
+
+### 🔹 Bitwise Operators
+
+* `\\\\\\\&`  AND
+* `|`  OR
+* `^`  XOR
+* `<<` Left shift
+* `>>` Right shift
+
+👉 **Use:** Operate on **two values**
+
+---
+
+## 3️⃣ Ternary Operator (Three operands)
+
+* `?:`  Conditional operator
+
+👉 **Use:**
+
+* Works like **if–else**
+* Returns one value based on condition
+
+---
+
+## One-Line Summary (Exam Ready)
+
+* **Unary** → works on **1 operand**
+* **Binary** → works on **2 operands**
+* **Ternary** → works on **3 operands**
+
+
+
+
+QQQ
+
+write a difference between primitive an d non p datatype
+
+primitive datatype :
+inbuilt datatypes and are predefined in Java
+fixed size.
+Primitive data types store simple values and are predefined in Java.
+
+non primitive datatype:--
+
+user defined.
+not fixed size.
+
+
+write a difference between local and global variable
+
+Local variable :--
+local variable is the variable which is declare inside main function or local area and can not be access it outside the main function. 
+global  variable:--
+a variable is declare outside the local area
+there are two types global varible:--
+ A. static variable:-
+  declare inside the local area and static keyword is used in it
+B.  non Static == without static keyword
+
+
+
+
+difference between complier and interpreter
+
+Compiler :-- translates whole program first, then runs
+if  error occur then it show at compile time at the end .
+
+Interpreter → translates and runs program line by line is error occur it will show at the same time
+
+
+
+write a difference between platform dependent and independent language ::--
+
+platform dependent language :--
+
+A language which runs on specific operating system or some platform like c++ c
+
+platform independent language:--
+ A language which runs on any operating system or any platform like java
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+                                                                                ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+1. How does the object-oriented nature of Java help in software development?
+
+Java follows the object-oriented programming (OOP) approach, which helps in organizing code in the form of classes and objects.
+OOP concepts like encapsulation, inheritance, polymorphism, and abstraction make the software easier to design,
+understand, and maintain. Code reusability reduces development time, and modularity helps teams work on large projects efficiently.
+
+2. Why is Java considered a simple language compared to C and C++?
+
+Java is considered simple because it removes complex features found in C and C++, such as pointers,
+manual memory management, multiple inheritance, and operator overloading. Java provides automatic garbage collection,
+a clear syntax, and built-in libraries, which makes it easier for developers to write, debug, and maintain programs.
+
+3. How does Java provide security at run time?
+
+Java provides runtime security using the Java Virtual Machine (JVM). The bytecode verifier checks the code
+before execution, and the class loader prevents unauthorized classes from being loaded. Java also uses
+Security Manager and access control mechanisms to restrict illegal operations, making Java programs safe from viruses and malicious code.
+
+4. What makes Java a robust language?
+
+Java is considered robust because it has strong memory management, automatic garbage collection,
+and exception handling. It avoids common programming errors like memory leaks and crashes. Compile-time and runtime error
+checking also help in creating reliable and stable applications.
+
+5. How does Java achieve high performance?
+
+Java achieves high performance through the Just-In-Time (JIT) compiler, which converts frequently
+used bytecode into native machine code at runtime. This improves execution speed. Efficient memory management
+and optimized JVM architecture also contribute to better performance.
+
+6. What do you mean by portability in Java?
+
+Portability in Java means “Write Once, Run Anywhere.” Java programs are compiled into bytecode,
+which can run on any system that has a JVM, regardless of the operating system or hardware. This makes Java applications platform-independent.
+
+7. Why does Java have strong industries and job opportunities?
+
+Java is widely used in enterprise applications, web development, mobile applications (Android),
+banking systems, cloud computing, and big data. Many large companies rely on Java for building secure and scalable applications.
+Due to its wide usage and long-term stability, Java offers strong job opportunities across industries.
+
+
+
+
+
+
+
+
+
+import java.util.*;
+public class H {
+    public static void main(String[] args) {
+int a=4;
+int b=8;
+int tem=4;
+a=b;
+b=tem;
+system.out.println(a)
+ 
+    }
+}
+
+
+////////////////////////////////////////////
+
+
+
+operator :
+
+based on operator:-
+
+unary
+binary
+ternary
+
+
+based on operation :
+arithmetic
+relational
+logical:-
+conditional
+incremental / decrement
+assignment
